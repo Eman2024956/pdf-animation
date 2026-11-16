@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-paper: #f5f4fd;
+  --color-ink: #17153b;
+  --color-ink-soft: #5d5a85;
+  --color-line: #e3e0f5;
+  --color-brand: #5b4bff;
+  --color-brand-deep: #3d2fd6;
+  --color-sun: #ffb62e;
+  --color-mint: #2dd4a7;
+  --color-rose: #ff6b9d;
+  --color-sky: #4cc3ff;
+  --color-stage: #0e0c2c;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Stage typography scales with the stage itself, so scenes look the same at any size. */
+.st-h1 {
+  font-size: clamp(24px, 5.4cqw, 68px);
+  line-height: 1.05;
+}
+.st-h2 {
+  font-size: clamp(17px, 3cqw, 38px);
+  line-height: 1.15;
+}
+.st-body {
+  font-size: clamp(12.5px, 1.75cqw, 21px);
+  line-height: 1.45;
+}
+.st-small {
+  font-size: clamp(10px, 1.15cqw, 14px);
+}
+.st-formula {
+  font-size: clamp(22px, 5cqw, 60px);
+  font-family: "Cambria Math", "STIX Two Math", Cambria, Georgia, serif;
+}
+
+.stage-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+}
+
+/* Highlighter sweep on key terms. */
+.hl {
+  color: inherit;
+  background: linear-gradient(transparent 58%, rgba(255, 182, 46, 0.55) 58%) no-repeat;
+  background-size: 0% 100%;
+  animation: hl-sweep 0.7s 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  border-radius: 2px;
+}
+@keyframes hl-sweep {
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #cfcaf0 transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hl {
+    animation: none;
+    background-size: 100% 100%;
+  }
 }

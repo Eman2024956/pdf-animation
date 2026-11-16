@@ -1,0 +1,127 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 151 >>
+stream
+BT /F2 30 Tf 72 660.0 Td (Forces and Motion) Tj ET
+BT /F1 11.5 Tf 72 611.5 Td (A short introduction to classical mechanics for curious students.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 1724 >>
+stream
+BT /F2 22 Tf 72 710.0 Td (Chapter 1: Describing Motion) Tj ET
+BT /F1 11.5 Tf 72 672.3 Td (Motion is everywhere around us, from a rolling ball to the planets circling the Sun. To) Tj ET
+BT /F1 11.5 Tf 72 656.8 Td (study motion we must first measure where an object is and how quickly its position) Tj ET
+BT /F1 11.5 Tf 72 641.3 Td (changes. Physicists describe motion using a small set of precise quantities.) Tj ET
+BT /F2 15 Tf 72 611.7 Td (Speed and Velocity) Tj ET
+BT /F1 11.5 Tf 72 583.5 Td (Speed is the distance an object travels in a given amount of time. Velocity is the speed) Tj ET
+BT /F1 11.5 Tf 72 568.0 Td (of an object together with its direction of travel. Two cars can have the same speed but) Tj ET
+BT /F1 11.5 Tf 72 552.4 Td (different velocity if they drive in opposite directions. This difference is important) Tj ET
+BT /F1 11.5 Tf 72 536.9 Td (because direction changes the result of many calculations.) Tj ET
+BT /F1 12 Tf 112 515.4 Td (v = d / t) Tj ET
+BT /F1 11.5 Tf 72 491.2 Td (For example, a cyclist who covers 100 meters in 20 seconds has an average speed of 5) Tj ET
+BT /F1 11.5 Tf 72 475.7 Td (meters per second. If the cyclist then turns around, the speed stays the same but the) Tj ET
+BT /F1 11.5 Tf 72 460.1 Td (velocity reverses.) Tj ET
+BT /F2 15 Tf 72 430.6 Td (Acceleration) Tj ET
+BT /F1 11.5 Tf 72 402.4 Td (Acceleration is the rate at which velocity changes over time. An object accelerates when) Tj ET
+BT /F1 11.5 Tf 72 386.8 Td (it speeds up, slows down, or changes direction. Therefore a car moving around a bend at) Tj ET
+BT /F1 11.5 Tf 72 371.3 Td (constant speed is still accelerating, because its direction keeps changing.) Tj ET
+BT /F1 12 Tf 112 349.8 Td (a = \(v - u\) / t) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 2350 >>
+stream
+BT /F2 22 Tf 72 710.0 Td (Chapter 2: Newton's Laws) Tj ET
+BT /F1 11.5 Tf 72 672.3 Td (Isaac Newton explained motion with three laws that connect forces to the way objects) Tj ET
+BT /F1 11.5 Tf 72 656.8 Td (move. These laws remain the foundation of engineering, from bridges to rockets.) Tj ET
+BT /F2 15 Tf 72 627.3 Td (Force and Inertia) Tj ET
+BT /F1 11.5 Tf 72 599.0 Td (A force is a push or a pull that acts on an object. Inertia is the tendency of an object) Tj ET
+BT /F1 11.5 Tf 72 583.5 Td (to resist any change in its motion. The first law states that an object stays at rest or) Tj ET
+BT /F1 11.5 Tf 72 568.0 Td (keeps moving in a straight line unless an unbalanced force acts on it. Heavier objects) Tj ET
+BT /F1 11.5 Tf 72 552.4 Td (have more inertia, which is why a loaded truck is harder to stop than a bicycle.) Tj ET
+BT /F2 15 Tf 72 522.9 Td (The Second Law) Tj ET
+BT /F1 11.5 Tf 72 494.7 Td (The second law tells us exactly how much an object accelerates. The acceleration depends) Tj ET
+BT /F1 11.5 Tf 72 479.1 Td (on the net force and on the mass of the object. A larger force causes a larger) Tj ET
+BT /F1 11.5 Tf 72 463.6 Td (acceleration, while a larger mass leads to a smaller one.) Tj ET
+BT /F1 12 Tf 112 442.1 Td (F = m \327 a) Tj ET
+BT /F1 11.5 Tf 72 417.9 Td (For example, pushing a 10 kilogram cart with a force of 20 newtons gives it an) Tj ET
+BT /F1 11.5 Tf 72 402.4 Td (acceleration of 2 meters per second squared. Doubling the force doubles the) Tj ET
+BT /F1 11.5 Tf 72 386.8 Td (acceleration.) Tj ET
+BT /F1 11.5 Tf 72 363.3 Td (To solve a force problem, follow these steps:) Tj ET
+BT /F1 11.5 Tf 86 345.8 Td (1. Draw the object and every force acting on it.) Tj ET
+BT /F1 11.5 Tf 86 328.3 Td (2. Add the forces to find the net force.) Tj ET
+BT /F1 11.5 Tf 86 310.7 Td (3. Divide the net force by the mass to get the acceleration.) Tj ET
+BT /F1 11.5 Tf 86 293.2 Td (4. Check that the direction of your answer makes sense.) Tj ET
+BT /F2 15 Tf 72 263.7 Td (Action and Reaction) Tj ET
+BT /F1 11.5 Tf 72 235.4 Td (The third law states that every action has an equal and opposite reaction. When a) Tj ET
+BT /F1 11.5 Tf 72 219.9 Td (swimmer pushes water backward, the water pushes the swimmer forward. Rockets work the) Tj ET
+BT /F1 11.5 Tf 72 204.4 Td (same way, because hot gas thrown downward lifts the rocket upward.) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 1540 >>
+stream
+BT /F2 22 Tf 72 710.0 Td (Chapter 3: Energy) Tj ET
+BT /F1 11.5 Tf 72 672.3 Td (Energy is the ability to do work. It is never created or destroyed, but it constantly) Tj ET
+BT /F1 11.5 Tf 72 656.8 Td (changes from one form into another. This principle is called the conservation of energy,) Tj ET
+BT /F1 11.5 Tf 72 641.3 Td (and it is one of the most important ideas in science.) Tj ET
+BT /F2 15 Tf 72 611.7 Td (Kinetic and Potential Energy) Tj ET
+BT /F1 11.5 Tf 72 583.5 Td (Kinetic energy is the energy an object has because of its motion. Potential energy is) Tj ET
+BT /F1 11.5 Tf 72 568.0 Td (the energy stored in an object because of its position. A book on a high shelf has) Tj ET
+BT /F1 11.5 Tf 72 552.4 Td (potential energy, which becomes kinetic energy as the book falls.) Tj ET
+BT /F1 12 Tf 112 530.9 Td (KE = 1/2 m v^2) Tj ET
+BT /F1 12 Tf 112 508.7 Td (PE = m g h) Tj ET
+BT /F1 11.5 Tf 72 484.5 Td (For example, a roller coaster at the top of a hill has mostly potential energy. As it) Tj ET
+BT /F1 11.5 Tf 72 469.0 Td (races down, that energy transforms into kinetic energy and the cars reach their highest) Tj ET
+BT /F1 11.5 Tf 72 453.5 Td (speed at the bottom.) Tj ET
+BT /F2 15 Tf 72 423.9 Td (Summary) Tj ET
+BT /F1 11.5 Tf 72 395.7 Td (Motion is described by speed, velocity, and acceleration. Forces cause acceleration, and) Tj ET
+BT /F1 11.5 Tf 72 380.2 Td (the second law links force, mass, and acceleration together. Energy changes form but the) Tj ET
+BT /F1 11.5 Tf 72 364.6 Td (total amount always stays the same.) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000135 00000 n 
+0000000232 00000 n 
+0000000334 00000 n 
+0000000536 00000 n 
+0000000672 00000 n 
+0000002448 00000 n 
+0000002584 00000 n 
+0000004986 00000 n 
+0000005123 00000 n 
+0000006716 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+6854
+%%EOF

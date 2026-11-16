@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local test PDFs
+/public/_local
+
+# copied from pdfjs-dist by the postinstall script
+/public/pdf.worker.min.mjs
