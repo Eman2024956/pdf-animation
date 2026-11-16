@@ -18,9 +18,23 @@ Open http://localhost:3000, drop in a PDF, or press **Try the sample**.
 
 Controls: play/pause (Space), previous/next (← →), per-chapter timeline, speed, voice, mute, subtitles, source-page viewer, chapter and scene navigation.
 
-## Optional: AI teacher mode
+## Export
 
-Set `AI_GATEWAY_API_KEY` (Vercel AI Gateway) and an **AI teacher** button appears in the player. It rewrites the current chapter into teacher-style scenes via `app/api/enhance/route.ts`. Override the model with `AI_MODEL` (default `anthropic/claude-sonnet-5.5`).
+The **Export** button in the player offers:
+
+- **Video · this chapter**: records the stage while the chapter plays (real time) and saves an `.mp4` (or `.webm` where MP4 recording isn't supported). The browser asks you to share the tab; Chrome and Edge crop the capture to the stage.
+- **Audio MP3 · this chapter / whole lesson**: saves the narration as one MP3.
+
+MP3 export, and narration audio inside the video, need the **studio voice**: real audio files from `app/api/tts/route.ts`. The browser's built-in voices can't be captured, so without the studio voice the video is silent (subtitles still show) and MP3 export is disabled.
+
+## Optional: AI features
+
+Set `AI_GATEWAY_API_KEY` (Vercel AI Gateway) in `.env.local` and restart:
+
+- **Studio voice** becomes the default narrator and unlocks MP3 export and video narration. Override with `TTS_MODEL` (default `openai/gpt-4o-mini-tts`) and `TTS_VOICE` (default `alloy`).
+- An **AI teacher** button rewrites the current chapter into teacher-style scenes via `app/api/enhance/route.ts`. Override the model with `AI_MODEL` (default `anthropic/claude-sonnet-5.5`).
+
+Both routes are unauthenticated; add your own protection before deploying publicly.
 
 ## Notes
 

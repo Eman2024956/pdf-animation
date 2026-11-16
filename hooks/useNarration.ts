@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { fetchSpeech, studioPlayer } from "@/lib/audio/studio";
 
 interface Options {
   /** Changes whenever a new beat should start from its beginning. */
@@ -11,6 +12,8 @@ interface Options {
   muted: boolean;
   voice: SpeechSynthesisVoice | null;
   lang: string;
+  /** Use recordable studio audio from the server instead of the browser voice. */
+  studio: boolean;
   onEnd: () => void;
 }
 
@@ -18,11 +21,11 @@ const WORDS_PER_SECOND = 2.6;
 const GAP_MS = 380;
 
 /**
- * Speaks one beat of narration with the browser's speech engine and reports
+ * Speaks one beat of narration (studio audio, else the browser's speech engine) and reports
  * which word is being spoken. When speech is muted or unavailable it keeps
  * the same pacing with a timer, so the lesson always plays.
  */
-export function useNarration({ beatKey, text, playing, rate, muted, voice, lang, onEnd }: Options) {
+export function useNarration({ beatKey, text, playing, rate, muted, voice, lang, studio, onEnd }: Options) {
   const [word, setWord] = useState({ key: beatKey, index: 0 });
   const onEndRef = useRef(onEnd);
   useEffect(() => {
@@ -37,12 +40,21 @@ export function useNarration({ beatKey, text, playing, rate, muted, voice, lang,
     let gotBoundary = false;
     let started = false;
     const timers: ReturnType<typeof setTimeout>[] = [];
-    const t0 = performance.now();
+    let t0 = performance.now();
+    let audio: HTMLAudioElement | null = null;
+    let audioUrl = "";
+    let loading = false;
     const setWordIndex = (index: number) => setWord({ key: beatKey, index });
 
     // Estimated word position; real boundary events override it when the voice provides them.
     const ticker = setInterval(() => {
-      if (cancelled || gotBoundary) return;
+      if (cancelled || gotBoundary || loading) return;
+      if (audio) {
+        // Studio audio: follow the real playback position.
+        const share = audio.duration ? audio.currentTime / audio.duration : 0;
+        setWordIndex(Math.min(words.length - 1, Math.floor(share * words.length)));
+        return;
+      }
       const est = Math.floor(((performance.now() - t0) / 1000) * WORDS_PER_SECOND * rate);
       setWordIndex(Math.min(words.length - 1, est));
     }, 120);
@@ -60,9 +72,8 @@ export function useNarration({ beatKey, text, playing, rate, muted, voice, lang,
       timers.push(setTimeout(finish, Math.max(700, ms - (performance.now() - t0))));
     };
 
-    if (muted || !synth) {
-      runSilently();
-    } else {
+    const speakWithBrowser = () => {
+      if (!synth) return runSilently();
       const u = new SpeechSynthesisUtterance(text);
       u.rate = rate;
       u.lang = voice?.lang ?? lang;
@@ -94,6 +105,34 @@ export function useNarration({ beatKey, text, playing, rate, muted, voice, lang,
           runSilently();
         }, 2200),
       );
+    };
+
+    if (muted) {
+      runSilently();
+    } else if (studio) {
+      loading = true;
+      const player = studioPlayer(); // created inside the click that started playback
+      fetchSpeech(text, lang)
+        .then((blob) => {
+          if (cancelled) return;
+          audioUrl = URL.createObjectURL(blob);
+          player.src = audioUrl;
+          player.playbackRate = rate;
+          player.onended = finish;
+          audio = player;
+          loading = false;
+          return player.play();
+        })
+        .catch(() => {
+          if (cancelled) return;
+          // No studio audio for this line: carry on with the browser voice.
+          audio = null;
+          loading = false;
+          t0 = performance.now();
+          speakWithBrowser();
+        });
+    } else {
+      speakWithBrowser();
     }
 
     return () => {
@@ -101,8 +140,13 @@ export function useNarration({ beatKey, text, playing, rate, muted, voice, lang,
       clearInterval(ticker);
       timers.forEach(clearTimeout);
       synth?.cancel();
+      if (audio) {
+        audio.onended = null;
+        audio.pause();
+      }
+      if (audioUrl) URL.revokeObjectURL(audioUrl);
     };
-  }, [beatKey, text, playing, rate, muted, voice, lang]);
+  }, [beatKey, text, playing, rate, muted, voice, lang, studio]);
 
   return word.key === beatKey ? word.index : 0;
 }
